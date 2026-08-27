@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edén Pilates - Movimiento consciente, vida plena.</title>
+    <meta name="description" content="Estudio boutique de Pilates Reformer y Mat en un entorno orgánico y zen. Conexión, precisión y bienestar integral.">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS with Stitch Design System tokens -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        surface: "#faf9f7",
+                        "surface-dim": "#dadad8",
+                        "surface-bright": "#faf9f7",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f4f3f1",
+                        "surface-container": "#efeeec",
+                        "surface-container-high": "#e9e8e6",
+                        "surface-container-highest": "#e3e2e0",
+                        background: "#faf9f7",
+                        "on-surface": "#1a1c1b",
+                        "on-surface-variant": "#444841",
+                        "inverse-surface": "#2f3130",
+                        "inverse-on-surface": "#f1f1ef",
+                        outline: "#757871",
+                        "outline-variant": "#c5c8bf",
+                        "surface-tint": "#55624f",
+                        primary: "#424f3d",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#5a6754",
+                        "on-primary-container": "#d6e5cd",
+                        "inverse-primary": "#bdcbb4",
+                        "primary-fixed": "#d9e7cf",
+                        "primary-fixed-dim": "#bdcbb4",
+                        secondary: "#5c6050",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#e1e5d0",
+                        "on-secondary-container": "#626656",
+                        tertiary: "#514a3e",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#696255",
+                        "on-tertiary-container": "#e9dfce"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        sm: "0.125rem",
+                        md: "0.375rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        gutter: "32px",
+                        "section-padding": "96px",
+                        "container-max": "1200px",
+                        "margin-mobile": "24px"
+                    },
+                    fontFamily: {
+                        serif: ['"Libre Caslon Text"', "Georgia", "serif"],
+                        sans: ['"Hanken Grotesk"', "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-surface text-on-surface font-sans antialiased selection:bg-secondary-container selection:text-on-secondary-container overflow-x-hidden">
+
+    <!-- 1. Header / Navbar -->
+    <header class="fixed top-0 w-full z-40 bg-surface/85 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-300" id="navbar">
+        <div class="flex justify-between items-center w-full px-margin-mobile md:px-gutter py-5 max-w-container-max mx-auto">
+            <!-- Brand Logo & Name -->
+            <a class="flex items-center gap-3 group" href="#inicio">
+                <img src="assets/logo.jpg" alt="Logo Edén Pilates" class="h-10 w-10 object-contain rounded-full border border-outline-variant/40 group-hover:scale-105 transition-transform">
+                <span class="font-serif text-2xl md:text-3xl text-primary tracking-tight font-normal">Edén Pilates</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex gap-8 items-center text-sm font-medium uppercase tracking-widest text-on-surface-variant">
+                <a class="hover:text-primary transition-colors duration-200" href="#metodo">El Método</a>
+                <a class="hover:text-primary transition-colors duration-200" href="#clases">Clases</a>
+                <a class="hover:text-primary transition-colors duration-200" href="#horarios">Horarios</a>
+                <a class="hover:text-primary transition-colors duration-200" href="#estudio">El Estudio</a>
+                <a class="hover:text-primary transition-colors duration-200" href="#precios">Planes</a>
+                <a class="hover:text-primary transition-colors duration-200" href="#contacto">Contacto</a>
+            </nav>
+
+            <!-- CTA Desktop -->
+            <div class="hidden md:flex items-center gap-4">
+                <a class="inline-flex items-center justify-center bg-primary-container text-on-primary px-6 py-2.5 rounded-lg hover:bg-primary transition-all duration-300 text-sm font-medium tracking-wide shadow-sm hover:shadow" href="#reservar">
+                    Reservar Sesión
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden text-primary p-2 focus:outline-none" id="mobile-menu-btn" aria-label="Abrir menú">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobile-drawer" class="fixed inset-0 z-50 bg-surface/98 backdrop-blur-xl translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col justify-between p-8">
+        <div>
+            <div class="flex justify-between items-center pb-6 border-b border-outline-variant/30">
+                <div class="flex items-center gap-3">
+                    <img src="assets/logo.jpg" alt="Logo Edén Pilates" class="h-10 w-10 object-contain rounded-full border border-outline-variant/40">
+                    <span class="font-serif text-2xl text-primary">Edén Pilates</span>
+                </div>
+                <button id="close-menu-btn" class="p-2 text-primary focus:outline-none" aria-label="Cerrar menú">
+                    <span class="material-symbols-outlined text-3xl">close</span>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-6 mt-10 text-xl font-serif text-primary">
+                <a class="mobile-nav-link hover:text-primary-container transition-colors" href="#inicio">Inicio</a>
+                <a class="mobile-nav-link hover:text-primary-container transition-colors" href="#metodo">El Método</a>
+                <a class="mobile-nav-link hover:text-primary-container transition-colors" href="#clases">Clases & Disciplinas</a>
+                <a class="mobile-nav-link hover:text-primary-container transition-colors" href="#horarios">Horarios & Reservas</a>
+                <a class="mobile-nav-link hover:text-primary-container transition-colors" href="#estudio">El Estudio</a>
+                <a class="mobile-nav-link hover:text-primary-container transition-colors" href="#precios">Tarifas</a>
+                <a class="mobile-nav-link hover:text-primary-container transition-colors" href="#contacto">Contacto</a>
+            </nav>
+        </div>
+        <div class="pt-8 border-t border-outline-variant/30 space-y-4">
+            <a class="mobile-nav-link block w-full text-center bg-primary-container text-on-primary py-3.5 rounded-lg text-base font-medium" href="#reservar">
+                Reservar Mi Clase
+            </a>
+            <p class="text-xs text-center text-on-surface-variant">Av. de la Paz 123, Ciudad Serena</p>
+        </div>
+    </div>
+
+    <main>
+        <!-- 2. Hero Section -->
+        <section class="relative min-h-screen w-full flex flex-col justify-between items-center overflow-hidden pt-28 pb-8 md:pb-12" id="inicio">
+            <!-- Portada Video Background -->
+            <video autoplay loop muted playsinline class="hero-video" poster="assets/video_thumb.jpg">
+                <source src="assets/Crear_video_para_logo_web_202608241226.mp4" type="video/mp4">
+                <source src="assets/portada.mp4" type="video/mp4">
+                Tu navegador no soporta reproducción de vídeo HTML5.
+            </video>
+
+            <!-- Hero Overlay Gradient (fades only at bottom edge) -->
+            <div class="hero-overlay absolute inset-0 z-10 pointer-events-none"></div>
+            
+            <!-- Top Badge -->
+            <div class="relative z-20 text-center pt-2">
+                <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.25em] uppercase text-primary bg-surface/75 backdrop-blur-md border border-outline-variant/30 shadow-xs">
+                    Estudio Boutique de Pilates
+                </span>
+            </div>
+
+            <!-- Central Visual Space: Leaves the entire video focal animation completely unblocked -->
+            <div class="flex-1 w-full pointer-events-none min-h-[32vh] md:min-h-[38vh]"></div>
+
+            <!-- Bottom Content (Tagline + Subtitle + CTAs + Scroll Indicator) -->
+            <div class="relative z-20 flex flex-col items-center justify-center text-center px-margin-mobile logo-transition max-w-3xl mx-auto space-y-4">
+                <h1 class="font-serif text-2xl sm:text-3xl md:text-4xl text-primary tracking-tight font-normal">
+                    Movimiento consciente, vida plena.
+                </h1>
+
+                <p class="text-sm md:text-base text-on-surface-variant max-w-xl leading-relaxed">
+                    Un santuario dedicado al equilibrio, la alineación postural y la fuerza orgánica.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-3 pt-1 w-full sm:w-auto justify-center">
+                    <a href="#reservar" class="inline-flex items-center justify-center bg-primary text-on-primary px-7 py-3 rounded-lg font-medium text-sm hover:bg-primary-container transition-colors shadow-sm">
+                        Reservar Clase de Prueba
+                        <span class="material-symbols-outlined ml-2 text-lg">arrow_forward</span>
+                    </a>
+                    <a href="#clases" class="inline-flex items-center justify-center bg-surface/80 backdrop-blur-sm border border-primary text-primary px-7 py-3 rounded-lg font-medium text-sm hover:bg-surface transition-colors shadow-xs">
+                        Explorar Prácticas
+                    </a>
+                </div>
+
+                <!-- Scroll indicator -->
+                <a href="#metodo" class="pt-1 text-primary/70 hover:text-primary transition-colors animate-bounce block" aria-label="Ir al método">
+                    <span class="material-symbols-outlined text-2xl">keyboard_arrow_down</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 3. El Método Edén / Filosofía -->
+        <section class="py-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto fade-in-section" id="metodo">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-semibold tracking-[0.2em] uppercase text-secondary mb-3 block">Nuestra Filosofía</span>
+                <h2 class="font-serif text-3xl md:text-5xl text-primary mb-6">El Método Edén</h2>
+                <p class="text-base md:text-lg text-on-surface-variant leading-relaxed">
+                    Entendemos el Pilates no como una rutina física acelerada, sino como un diálogo sutil entre la mente, la respiración y cada fibra muscular.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Pillar 1 -->
+                <div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/30 organic-card">
+                    <div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center text-primary mb-6 border border-outline-variant/20">
+                        <span class="material-symbols-outlined text-2xl">spa</span>
+                    </div>
+                    <h3 class="font-serif text-xl text-primary mb-3">Conexión y Calma</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        Creamos un entorno libre de prisas para que cada inhalación oxigene y calme el sistema nervioso.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/30 organic-card">
+                    <div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center text-primary mb-6 border border-outline-variant/20">
+                        <span class="material-symbols-outlined text-2xl">straighten</span>
+                    </div>
+                    <h3 class="font-serif text-xl text-primary mb-3">Alineación Precisa</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        Corrección minuciosa de la postura biomecánica para prevenir dolencias y recuperar la elongación natural.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/30 organic-card">
+                    <div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center text-primary mb-6 border border-outline-variant/20">
+                        <span class="material-symbols-outlined text-2xl">fitness_center</span>
+                    </div>
+                    <h3 class="font-serif text-xl text-primary mb-3">Fuerza Profunda</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        Activación consciente del core y suelo pélvico, generando una estabilidad duradera sin sobrecargar articulaciones.
+                    </p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/30 organic-card">
+                    <div class="w-12 h-12 rounded-lg bg-surface flex items-center justify-center text-primary mb-6 border border-outline-variant/20">
+                        <span class="material-symbols-outlined text-2xl">groups</span>
+                    </div>
+                    <h3 class="font-serif text-xl text-primary mb-3">Grupos Reducidos</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        Máximo 6 personas por clase para garantizar ajustes personalizados y un seguimiento individual riguroso.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Clases & Disciplinas -->
+        <section class="py-section-padding bg-surface-container-low/60 border-y border-outline-variant/20 fade-in-section" id="clases">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs font-semibold tracking-[0.2em] uppercase text-secondary mb-3 block">Nuestras Prácticas</span>
+                    <h2 class="font-serif text-3xl md:text-5xl text-primary mb-4">Clases Diseñadas para Cada Necesidad</h2>
+                    <p class="text-base md:text-lg text-on-surface-variant">
+                        Sesiones adaptadas a tu nivel, guiadas por instructores certificados en aparatología clásica y contemporánea.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <!-- Left: Class Cards -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <!-- Class 1 -->
+                        <div class="p-8 bg-surface rounded-xl border border-outline-variant/30 organic-card">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                                <h3 class="font-serif text-2xl text-primary">Pilates Reformer</h3>
+                                <div class="flex gap-2">
+                                    <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-medium">Todos los niveles</span>
+                                    <span class="bg-surface-container text-on-surface-variant px-3 py-1 rounded-full text-xs font-medium">50 min</span>
+                                </div>
+                            </div>
+                            <p class="text-on-surface-variant text-sm md:text-base leading-relaxed mb-6">
+                                La práctica estrella con máquinas Reformer de madera. Utiliza la resistencia suave y progresiva de resortes para esculpir musculatura magra, descomprimir la columna y perfeccionar el control corporal.
+                            </p>
+                            <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+                                <span class="text-xs font-medium text-secondary">Máx. 6 alumnos por sesión</span>
+                                <button onclick="openBookingModal('Pilates Reformer', '08:00 AM - 08:50 AM', 'Ana Soto')" class="inline-flex items-center text-primary font-medium text-sm hover:text-primary-container transition-colors group">
+                                    Reservar esta clase <span class="material-symbols-outlined ml-1 text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Class 2 -->
+                        <div class="p-8 bg-surface rounded-xl border border-outline-variant/30 organic-card">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                                <h3 class="font-serif text-2xl text-primary">Mat Clásico & Props</h3>
+                                <div class="flex gap-2">
+                                    <span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-medium">Principiante / Intermedio</span>
+                                    <span class="bg-surface-container text-on-surface-variant px-3 py-1 rounded-full text-xs font-medium">50 min</span>
+                                </div>
+                            </div>
+                            <p class="text-on-surface-variant text-sm md:text-base leading-relaxed mb-6">
+                                La pureza del método Joseph Pilates en suelo con colchonetas de alta densidad y elementos complementarios (aros mágicos, bandas elásticas, foam rollers y pelotas suizas).
+                            </p>
+                            <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+                                <span class="text-xs font-medium text-secondary">Máx. 8 alumnos por sesión</span>
+                                <button onclick="openBookingModal('Mat Clásico & Props', '10:00 AM - 10:50 AM', 'Carlos Mendoza')" class="inline-flex items-center text-primary font-medium text-sm hover:text-primary-container transition-colors group">
+                                    Reservar esta clase <span class="material-symbols-outlined ml-1 text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Class 3 -->
+                        <div class="p-8 bg-surface rounded-xl border border-outline-variant/30 organic-card">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                                <h3 class="font-serif text-2xl text-primary">Pilates Terapéutico & Prenatal</h3>
+                                <div class="flex gap-2">
+                                    <span class="bg-tertiary-container/20 text-tertiary px-3 py-1 rounded-full text-xs font-medium">Especializado</span>
+                                    <span class="bg-surface-container text-on-surface-variant px-3 py-1 rounded-full text-xs font-medium">50 min</span>
+                                </div>
+                            </div>
+                            <p class="text-on-surface-variant text-sm md:text-base leading-relaxed mb-6">
+                                Enfoque restaurativo para personas en proceso de rehabilitación de espalda o articulaciones, y mujeres en etapa prenatal o posparto con atención anatómica dedicada.
+                            </p>
+                            <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+                                <span class="text-xs font-medium text-secondary">Atención personalizada 1 a 1 o dúo</span>
+                                <button onclick="openBookingModal('Pilates Terapéutico & Prenatal', '11:00 AM - 11:50 AM', 'Elena Ramos')" class="inline-flex items-center text-primary font-medium text-sm hover:text-primary-container transition-colors group">
+                                    Consultar disponibilidad <span class="material-symbols-outlined ml-1 text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Large Image with caption -->
+                    <div class="lg:col-span-5 h-[620px] rounded-2xl overflow-hidden relative border border-outline-variant/30 shadow-sm">
+                        <img src="assets/pilates-class.jpg" alt="Alumna practicando Pilates Reformer en Edén Pilates" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-8">
+                            <div class="text-white">
+                                <span class="text-xs uppercase tracking-widest text-secondary-fixed mb-1 block">Atmósfera Zen</span>
+                                <p class="font-serif text-xl font-normal leading-snug">"En 10 sesiones sentirás la diferencia, en 20 sesiones verás la diferencia y en 30 sesiones tendrás un cuerpo nuevo."</p>
+                                <span class="text-xs text-secondary-fixed/80 mt-2 block">— Joseph Pilates</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Horarios & Reserva Interactiva -->
+        <section class="py-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto fade-in-section" id="horarios">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs font-semibold tracking-[0.2em] uppercase text-secondary mb-3 block">Agenda Semanal</span>
+                <h2 class="font-serif text-3xl md:text-5xl text-primary mb-4">Próximas Sesiones</h2>
+                <p class="text-base text-on-surface-variant">Selecciona tu día y reserva tu plaza directamente en tiempo real.</p>
+            </div>
+
+            <!-- Booking Box Container -->
+            <div class="bg-surface rounded-2xl border border-outline-variant/30 p-6 md:p-10 shadow-sm" id="reservar">
+                <!-- Day filter bar -->
+                <div class="flex flex-wrap gap-2 pb-6 border-b border-outline-variant/20 mb-8 items-center justify-between">
+                    <div class="flex flex-wrap gap-2">
+                        <button class="day-filter-btn px-5 py-2 rounded-lg text-xs md:text-sm font-medium border bg-primary text-white border-primary transition-colors" data-day="hoy">Hoy</button>
+                        <button class="day-filter-btn px-5 py-2 rounded-lg text-xs md:text-sm font-medium border bg-surface text-on-surface-variant border-outline-variant/40 hover:bg-surface-container-low transition-colors" data-day="lunes">Lunes</button>
+                        <button class="day-filter-btn px-5 py-2 rounded-lg text-xs md:text-sm font-medium border bg-surface text-on-surface-variant border-outline-variant/40 hover:bg-surface-container-low transition-colors" data-day="martes">Martes</button>
+                        <button class="day-filter-btn px-5 py-2 rounded-lg text-xs md:text-sm font-medium border bg-surface text-on-surface-variant border-outline-variant/40 hover:bg-surface-container-low transition-colors" data-day="miercoles">Miércoles</button>
+                        <button class="day-filter-btn px-5 py-2 rounded-lg text-xs md:text-sm font-medium border bg-surface text-on-surface-variant border-outline-variant/40 hover:bg-surface-container-low transition-colors" data-day="jueves">Jueves</button>
+                        <button class="day-filter-btn px-5 py-2 rounded-lg text-xs md:text-sm font-medium border bg-surface text-on-surface-variant border-outline-variant/40 hover:bg-surface-container-low transition-colors" data-day="viernes">Viernes</button>
+                    </div>
+
+                    <!-- Category Pills -->
+                    <div class="flex gap-2 mt-4 lg:mt-0">
+                        <button class="class-filter-btn px-3 py-1 rounded-full text-xs font-medium bg-primary-container text-on-primary-container" data-category="all">Todos</button>
+                        <button class="class-filter-btn px-3 py-1 rounded-full text-xs font-medium bg-surface-container-low text-on-surface-variant" data-category="reformer">Reformer</button>
+                        <button class="class-filter-btn px-3 py-1 rounded-full text-xs font-medium bg-surface-container-low text-on-surface-variant" data-category="mat">Mat</button>
+                    </div>
+                </div>
+
+                <!-- Slots List -->
+                <div class="space-y-4" id="slots-container">
+                    <!-- Slot 1 -->
+                    <div class="schedule-slot flex flex-col sm:flex-row justify-between items-start sm:items-center p-5 bg-surface-container-low/50 hover:bg-surface-container-low rounded-xl border border-outline-variant/30 transition-all"
+                         data-day="hoy" data-category="reformer" data-title="Pilates Reformer" data-time="08:00 AM - 08:50 AM" data-instructor="Ana Soto">
+                        <div class="mb-3 sm:mb-0">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-primary block mb-1">08:00 AM — 08:50 AM</span>
+                            <h4 class="font-serif text-lg text-on-surface">Pilates Reformer • Nivel Esencial</h4>
+                            <p class="text-xs text-on-surface-variant mt-1 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm text-secondary">person</span> Instructora: Ana Soto &bull; <span class="text-emerald-700 font-medium">2 plazas libres</span>
+                            </p>
+                        </div>
+                        <button class="select-slot-btn w-full sm:w-auto px-6 py-2.5 bg-primary text-on-primary hover:bg-primary-container rounded-lg text-xs font-medium uppercase tracking-wider transition-colors shadow-sm">
+                            Seleccionar
+                        </button>
+                    </div>
+
+                    <!-- Slot 2 -->
+                    <div class="schedule-slot flex flex-col sm:flex-row justify-between items-start sm:items-center p-5 bg-surface-container-low/50 hover:bg-surface-container-low rounded-xl border border-outline-variant/30 transition-all"
+                         data-day="hoy" data-category="mat" data-title="Mat Pilates & Core" data-time="10:00 AM - 10:50 AM" data-instructor="Carlos Mendoza">
+                        <div class="mb-3 sm:mb-0">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-primary block mb-1">10:00 AM — 10:50 AM</span>
+                            <h4 class="font-serif text-lg text-on-surface">Mat Pilates Clásico & Conexión</h4>
+                            <p class="text-xs text-on-surface-variant mt-1 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm text-secondary">person</span> Instructor: Carlos Mendoza &bull; <span class="text-emerald-700 font-medium">4 plazas libres</span>
+                            </p>
+                        </div>
+                        <button class="select-slot-btn w-full sm:w-auto px-6 py-2.5 bg-primary text-on-primary hover:bg-primary-container rounded-lg text-xs font-medium uppercase tracking-wider transition-colors shadow-sm">
+                            Seleccionar
+                        </button>
+                    </div>
+
+                    <!-- Slot 3 -->
+                    <div class="schedule-slot flex flex-col sm:flex-row justify-between items-start sm:items-center p-5 bg-surface-container-low/50 hover:bg-surface-container-low rounded-xl border border-outline-variant/30 transition-all"
+                         data-day="hoy" data-category="reformer" data-title="Pilates Reformer Dinámico" data-time="18:00 PM - 18:50 PM" data-instructor="Elena Ramos">
+                        <div class="mb-3 sm:mb-0">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-primary block mb-1">18:00 PM — 18:50 PM</span>
+                            <h4 class="font-serif text-lg text-on-surface">Pilates Reformer Dinámico • Intermedio</h4>
+                            <p class="text-xs text-on-surface-variant mt-1 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm text-secondary">person</span> Instructora: Elena Ramos &bull; <span class="text-amber-700 font-medium">Última plaza disponible</span>
+                            </p>
+                        </div>
+                        <button class="select-slot-btn w-full sm:w-auto px-6 py-2.5 bg-primary text-on-primary hover:bg-primary-container rounded-lg text-xs font-medium uppercase tracking-wider transition-colors shadow-sm">
+                            Seleccionar
+                        </button>
+                    </div>
+
+                    <!-- Slot 4 (Other days) -->
+                    <div class="schedule-slot hidden flex flex-col sm:flex-row justify-between items-start sm:items-center p-5 bg-surface-container-low/50 hover:bg-surface-container-low rounded-xl border border-outline-variant/30 transition-all"
+                         data-day="lunes" data-category="reformer" data-title="Pilates Reformer Madrugadores" data-time="07:30 AM - 08:20 AM" data-instructor="Ana Soto">
+                        <div class="mb-3 sm:mb-0">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-primary block mb-1">07:30 AM — 08:20 AM (Lunes)</span>
+                            <h4 class="font-serif text-lg text-on-surface">Reformer Sunrise & Elongación</h4>
+                            <p class="text-xs text-on-surface-variant mt-1 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm text-secondary">person</span> Instructora: Ana Soto &bull; <span class="text-emerald-700 font-medium">3 plazas libres</span>
+                            </p>
+                        </div>
+                        <button class="select-slot-btn w-full sm:w-auto px-6 py-2.5 bg-primary text-on-primary hover:bg-primary-container rounded-lg text-xs font-medium uppercase tracking-wider transition-colors shadow-sm">
+                            Seleccionar
+                        </button>
+                    </div>
+
+                    <!-- Slot 5 -->
+                    <div class="schedule-slot hidden flex flex-col sm:flex-row justify-between items-start sm:items-center p-5 bg-surface-container-low/50 hover:bg-surface-container-low rounded-xl border border-outline-variant/30 transition-all"
+                         data-day="martes" data-category="reformer" data-title="Reformer Tono & Fuerza" data-time="09:00 AM - 09:50 AM" data-instructor="Elena Ramos">
+                        <div class="mb-3 sm:mb-0">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-primary block mb-1">09:00 AM — 09:50 AM (Martes)</span>
+                            <h4 class="font-serif text-lg text-on-surface">Reformer Tono & Fuerza</h4>
+                            <p class="text-xs text-on-surface-variant mt-1 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm text-secondary">person</span> Instructora: Elena Ramos &bull; <span class="text-emerald-700 font-medium">5 plazas libres</span>
+                            </p>
+                        </div>
+                        <button class="select-slot-btn w-full sm:w-auto px-6 py-2.5 bg-primary text-on-primary hover:bg-primary-container rounded-lg text-xs font-medium uppercase tracking-wider transition-colors shadow-sm">
+                            Seleccionar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Custom Booking Banner Footer -->
+                <div class="mt-8 pt-6 border-t border-outline-variant/20 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <p class="text-xs md:text-sm text-on-surface-variant text-center md:text-left">
+                        ¿Buscas sesiones privadas 1 a 1 o evaluación postural personalizada?
+                    </p>
+                    <a href="#contacto" class="text-primary font-medium text-xs md:text-sm underline hover:text-primary-container">
+                        Contáctanos para horarios personalizados
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Tarifas & Planes -->
+        <section class="py-section-padding bg-surface-container-low/50 border-t border-outline-variant/20 fade-in-section" id="precios">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-semibold tracking-[0.2em] uppercase text-secondary mb-3 block">Transparencia y Flexibilidad</span>
+                    <h2 class="font-serif text-3xl md:text-5xl text-primary mb-4">Planes y Membresías</h2>
+                    <p class="text-base text-on-surface-variant">Sin matrícula ni permanencias. Invierte en tu bienestar con total libertad.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Plan 1 -->
+                    <div class="bg-surface p-8 rounded-2xl border border-outline-variant/30 organic-card flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold tracking-wider text-secondary uppercase block mb-2">Iniciación</span>
+                            <h3 class="font-serif text-2xl text-primary mb-4">Clase de Prueba</h3>
+                            <div class="mb-6">
+                                <span class="font-serif text-4xl text-primary">20€</span>
+                                <span class="text-xs text-on-surface-variant"> / única sesión</span>
+                            </div>
+                            <ul class="space-y-3 text-sm text-on-surface-variant mb-8">
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">check</span>
+                                    Sesión completa Reformer o Mat (50 min)
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">check</span>
+                                    Evaluación postural preliminar
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">check</span>
+                                    Material y toalla incluidos
+                                </li>
+                            </ul>
+                        </div>
+                        <button onclick="openBookingModal('Clase de Prueba Iniciación', 'Horario a coordinar', 'Instructor de turno')" class="w-full py-3 border border-primary text-primary hover:bg-surface-container-low rounded-lg font-medium text-sm transition-colors">
+                            Reservar Prueba
+                        </button>
+                    </div>
+
+                    <!-- Plan 2 (Destacado) -->
+                    <div class="bg-surface p-8 rounded-2xl border-2 border-primary organic-card relative flex flex-col justify-between shadow-md">
+                        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-on-primary text-[11px] font-semibold tracking-widest uppercase px-4 py-1 rounded-full">
+                            Más Recomendado
+                        </div>
+                        <div>
+                            <span class="text-xs font-semibold tracking-wider text-secondary uppercase block mb-2">Bono Frecuente</span>
+                            <h3 class="font-serif text-2xl text-primary mb-4">Bono 8 Sesiones</h3>
+                            <div class="mb-6">
+                                <span class="font-serif text-4xl text-primary">135€</span>
+                                <span class="text-xs text-on-surface-variant"> / bono (16.8€/clase)</span>
+                            </div>
+                            <ul class="space-y-3 text-sm text-on-surface-variant mb-8">
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">check</span>
+                                    Válido para Reformer y Mat
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">check</span>
+                                    Caducidad de 60 días
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">check</span>
+                                    Cancelación flexible hasta 12h antes
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">check</span>
+                                    Acceso a eventos y talleres especiales
+                                </li>
+                            </ul>
+                        </div>
+                        <button onclick="openBookingModal('Bono 8 Sesiones', 'Flexible', 'Equipo Edén')" class="w-full py-3 bg-primary text-on-primary hover:bg-primary-container rounded-lg font-medium text-sm transition-colors shadow-sm">
+                            Adquirir Bono
+                        </button>
+                    </div>
+
+                    <!-- Plan 3 -->
+                    <div class="bg-surface p-8 rounded-2xl border border-outline-variant/30 organic-card flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold tracking-wider text-secondary uppercase block mb-2">Experiencia VIP</span>
+                            <h3 class="font-serif text-2xl text-primary mb-4">Privado 1 a 1</h3>
+                            <div class="mb-6">
+                                <span class="font-serif text-4xl text-primary">55€</span>
+                                <span class="text-xs text-on-surface-variant"> / sesión individual</span>
+                            </div>
+                            <ul class="space-y-3 text-sm text-on-surface-variant mb-8">
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">check</span>
+                                    Uso exclusivo de Reformer y Cadillac
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">check</span>
+                                    Plan de entrenamiento a medida
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-base">check</span>
+                                    Horarios 100% personalizados
+                                </li>
+                            </ul>
+                        </div>
+                        <button onclick="openBookingModal('Sesión Privada 1 a 1', 'Horario a convenir', 'Instructor Senior')" class="w-full py-3 border border-primary text-primary hover:bg-surface-container-low rounded-lg font-medium text-sm transition-colors">
+                            Solicitar Sesión Privada
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. El Estudio -->
+        <section class="py-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto fade-in-section" id="estudio">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-semibold tracking-[0.2em] uppercase text-secondary block">Instalaciones</span>
+                    <h2 class="font-serif text-3xl md:text-5xl text-primary leading-tight">Un Espacio Concebido para el Silencio y la Belleza</h2>
+                    <p class="text-base md:text-lg text-on-surface-variant leading-relaxed">
+                        En Edén Pilates cuidamos cada detalle ambiental. Desde la luz natural filtrada hasta los materiales sostenibles, todo está pensado para que desconectes del ruido exterior y te reconectes con tu respiración.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant/20">
+                            <span class="material-symbols-outlined text-primary mb-2">wb_sunny</span>
+                            <h4 class="font-serif text-base text-primary mb-1">Luz Natural</h4>
+                            <p class="text-xs text-on-surface-variant">Amplios ventanales con ventilación ecológica constante.</p>
+                        </div>
+                        <div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant/20">
+                            <span class="material-symbols-outlined text-primary mb-2">chair</span>
+                            <h4 class="font-serif text-base text-primary mb-1">Aparatos de Roble</h4>
+                            <p class="text-xs text-on-surface-variant">Equipamiento artesanal con muelles de alta suavidad.</p>
+                        </div>
+                        <div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant/20">
+                            <span class="material-symbols-outlined text-primary mb-2">coffee</span>
+                            <h4 class="font-serif text-base text-primary mb-1">Área Botánica & Té</h4>
+                            <p class="text-xs text-on-surface-variant">Infusiones herbales de cortesía después de tu sesión.</p>
+                        </div>
+                        <div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant/20">
+                            <span class="material-symbols-outlined text-primary mb-2">shower</span>
+                            <h4 class="font-serif text-base text-primary mb-1">Vestuarios Privados</h4>
+                            <p class="text-xs text-on-surface-variant">Duchas individuales con toallas orgánicas y amenities.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 relative">
+                    <div class="h-[520px] rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm">
+                        <img src="assets/hero-bg.jpg" alt="Interior del estudio Edén Pilates" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Testimonios -->
+        <section class="py-section-padding bg-surface-container-low/40 border-y border-outline-variant/20 fade-in-section">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs font-semibold tracking-[0.2em] uppercase text-secondary mb-3 block">Testimonios</span>
+                    <h2 class="font-serif text-3xl md:text-4xl text-primary">La Experiencia en Edén</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-surface p-8 rounded-xl border border-outline-variant/30 organic-card">
+                        <div class="flex text-amber-600 mb-4">
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                        </div>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-6 font-serif italic">
+                            "Llegué con dolores lumbares continuos por el trabajo de oficina. Tras dos meses en Reformer, el dolor desapareció y mi postura cambió por completo. Es mi oasis de la semana."
+                        </p>
+                        <span class="text-xs font-semibold text-primary block">Lucía Gómez</span>
+                        <span class="text-[11px] text-on-surface-variant">Alumna de Reformer</span>
+                    </div>
+
+                    <div class="bg-surface p-8 rounded-xl border border-outline-variant/30 organic-card">
+                        <div class="flex text-amber-600 mb-4">
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                        </div>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-6 font-serif italic">
+                            "La delicadeza y atención de los profesores no tiene comparación. No te sientes en un gimnasio masivo, sino en un estudio donde realmente conocen tu cuerpo y ritmo."
+                        </p>
+                        <span class="text-xs font-semibold text-primary block">Marcos V.</span>
+                        <span class="text-[11px] text-on-surface-variant">Alumno de Mat & Reformer</span>
+                    </div>
+
+                    <div class="bg-surface p-8 rounded-xl border border-outline-variant/30 organic-card">
+                        <div class="flex text-amber-600 mb-4">
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                            <span class="material-symbols-outlined text-sm">star</span>
+                        </div>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-6 font-serif italic">
+                            "La luz del estudio, el olor a hierbas naturales y la paz que se respira te transforman el día. Recomiendo a todo el mundo probar una clase."
+                        </p>
+                        <span class="text-xs font-semibold text-primary block">Sofía del Río</span>
+                        <span class="text-[11px] text-on-surface-variant">Alumna Prenatal</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Preguntas Frecuentes (FAQ) -->
+        <section class="py-section-padding px-margin-mobile md:px-gutter max-w-3xl mx-auto fade-in-section">
+            <div class="text-center mb-14">
+                <span class="text-xs font-semibold tracking-[0.2em] uppercase text-secondary mb-3 block">Dudas Comunes</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-primary">Preguntas Frecuentes</h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="border border-outline-variant/30 rounded-xl bg-surface overflow-hidden">
+                    <button class="faq-toggle w-full p-5 text-left flex justify-between items-center font-serif text-lg text-primary hover:bg-surface-container-low transition-colors" aria-expanded="false">
+                        <span>¿Necesito experiencia previa para empezar?</span>
+                        <span class="material-symbols-outlined faq-icon text-on-surface-variant">expand_more</span>
+                    </button>
+                    <div class="p-5 pt-0 text-sm text-on-surface-variant leading-relaxed hidden border-t border-outline-variant/10">
+                        No, en absoluto. Nuestras clases cuentan con grupos muy reducidos (máx. 6 personas) lo que permite a las instructoras adaptar la intensidad y los ejercicios a tu punto de partida.
+                    </div>
+                </div>
+
+                <div class="border border-outline-variant/30 rounded-xl bg-surface overflow-hidden">
+                    <button class="faq-toggle w-full p-5 text-left flex justify-between items-center font-serif text-lg text-primary hover:bg-surface-container-low transition-colors" aria-expanded="false">
+                        <span>¿Qué ropa o material debo llevar a mi primera clase?</span>
+                        <span class="material-symbols-outlined faq-icon text-on-surface-variant">expand_more</span>
+                    </button>
+                    <div class="p-5 pt-0 text-sm text-on-surface-variant leading-relaxed hidden border-t border-outline-variant/10">
+                        Solo necesitas ropa deportiva cómoda y calcetines antideslizantes (grip socks). En el estudio disponemos de toallas orgánicas, taquillas y agua filtrada.
+                    </div>
+                </div>
+
+                <div class="border border-outline-variant/30 rounded-xl bg-surface overflow-hidden">
+                    <button class="faq-toggle w-full p-5 text-left flex justify-between items-center font-serif text-lg text-primary hover:bg-surface-container-low transition-colors" aria-expanded="false">
+                        <span>¿Cuál es la política de cancelación de clases?</span>
+                        <span class="material-symbols-outlined faq-icon text-on-surface-variant">expand_more</span>
+                    </button>
+                    <div class="p-5 pt-0 text-sm text-on-surface-variant leading-relaxed hidden border-t border-outline-variant/10">
+                        Puedes cancelar o reprogramar tu clase hasta 12 horas antes del inicio de la sesión sin perder tu crédito.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Contacto & Ubicación -->
+        <section class="py-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto fade-in-section" id="contacto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <!-- Formulario -->
+                <div>
+                    <span class="text-xs font-semibold tracking-[0.2em] uppercase text-secondary mb-2 block">Estamos para ti</span>
+                    <h2 class="font-serif text-3xl md:text-5xl text-primary mb-4">Hablemos</h2>
+                    <p class="text-on-surface-variant text-base mb-8">
+                        ¿Tienes dudas sobre qué disciplina es la adecuada para ti? Escríbenos y nuestro equipo te asesorará de forma personalizada.
+                    </p>
+
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-medium text-on-surface-variant uppercase tracking-wider mb-2" for="nombre">Nombre Completo</label>
+                            <input class="w-full bg-surface-container-low/60 border border-outline-variant/40 rounded-lg px-4 py-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" id="nombre" placeholder="Tu nombre y apellidos" type="text" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-on-surface-variant uppercase tracking-wider mb-2" for="email">Correo Electrónico</label>
+                            <input class="w-full bg-surface-container-low/60 border border-outline-variant/40 rounded-lg px-4 py-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" id="email" placeholder="tu@email.com" type="email" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-on-surface-variant uppercase tracking-wider mb-2" for="telefono">Teléfono (opcional)</label>
+                            <input class="w-full bg-surface-container-low/60 border border-outline-variant/40 rounded-lg px-4 py-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" id="telefono" placeholder="+34 600 000 000" type="tel">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-on-surface-variant uppercase tracking-wider mb-2" for="mensaje">Mensaje</label>
+                            <textarea class="w-full bg-surface-container-low/60 border border-outline-variant/40 rounded-lg px-4 py-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none" id="mensaje" placeholder="Cuéntanos tus objetivos o cualquier condición física particular..." rows="4" required></textarea>
+                        </div>
+                        <button class="bg-primary text-on-primary px-8 py-3.5 rounded-lg hover:bg-primary-container transition-colors duration-300 font-medium text-sm uppercase tracking-wider shadow-sm" type="submit">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Info & Mapa Visual -->
+                <div class="bg-surface-container-low p-8 md:p-10 rounded-2xl border border-outline-variant/30 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-serif text-2xl text-primary mb-6">El Estudio</h3>
+                        <div class="space-y-5 text-on-surface-variant text-sm">
+                            <p class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary text-xl mt-0.5">location_on</span>
+                                <span><strong>Edén Pilates Studio</strong><br>Av. de la Paz 123, Planta 1ª<br>28001 Madrid / Ciudad Serena</span>
+                            </p>
+                            <p class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary text-xl">phone</span>
+                                <span>+34 912 345 678 / +34 654 321 098</span>
+                            </p>
+                            <p class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary text-xl">mail</span>
+                                <span>hola@edenpilates.com</span>
+                            </p>
+                            <p class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary text-xl mt-0.5">schedule</span>
+                                <span>Lunes a Viernes: 07:30 - 21:00<br>Sábados: 09:00 - 14:00<br>Domingos: Cerrado para descanso</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Cartographic Card -->
+                    <div class="mt-8 h-48 bg-surface rounded-xl overflow-hidden relative border border-outline-variant/30 p-4 flex flex-col justify-between">
+                        <div class="flex items-center justify-between text-xs text-on-surface-variant">
+                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-primary">navigation</span> Metro Colón / Retiro (3 min)</span>
+                            <span class="bg-primary/10 text-primary px-2 py-0.5 rounded font-medium">Zona tranquila</span>
+                        </div>
+                        <div class="text-center py-2">
+                            <div class="inline-flex p-3 rounded-full bg-primary/10 text-primary mb-1">
+                                <span class="material-symbols-outlined text-2xl">pin_drop</span>
+                            </div>
+                            <span class="block font-serif text-sm text-primary">Av. de la Paz 123</span>
+                        </div>
+                        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="text-center text-xs text-primary font-medium hover:underline">
+                            Abrir en Google Maps &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 11. Footer -->
+    <footer class="w-full bg-surface-container border-t border-outline-variant/30 mt-16">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-gutter py-12 max-w-container-max mx-auto gap-8">
+            <div class="text-center md:text-left flex items-center gap-3">
+                <img src="assets/logo.jpg" alt="Logo Edén Pilates" class="h-10 w-10 object-contain rounded-full border border-outline-variant/40">
+                <div>
+                    <span class="font-serif text-xl text-primary block leading-none">Edén Pilates</span>
+                    <span class="text-xs text-secondary mt-1 block">Movimiento consciente, vida plena.</span>
+                </div>
+            </div>
+
+            <nav class="flex flex-wrap justify-center gap-6 text-xs md:text-sm text-on-surface-variant uppercase tracking-wider">
+                <a class="hover:text-primary transition-colors" href="#inicio">Inicio</a>
+                <a class="hover:text-primary transition-colors" href="#metodo">El Método</a>
+                <a class="hover:text-primary transition-colors" href="#clases">Clases</a>
+                <a class="hover:text-primary transition-colors" href="#horarios">Horarios</a>
+                <a class="hover:text-primary transition-colors" href="#precios">Tarifas</a>
+                <a class="hover:text-primary transition-colors" href="#contacto">Contacto</a>
+            </nav>
+
+            <div class="text-xs text-on-surface-variant text-center md:text-right">
+                <p>&copy; 2026 Edén Pilates Studio. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Booking Modal -->
+    <div id="booking-modal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="modal-content bg-surface rounded-2xl border border-outline-variant/40 shadow-xl max-w-lg w-full p-6 md:p-8 opacity-0 scale-95 transition-all duration-300">
+            <div class="flex justify-between items-center pb-4 border-b border-outline-variant/20 mb-6">
+                <div>
+                    <span class="text-xs font-semibold tracking-wider text-secondary uppercase block">Confirmar Plaza</span>
+                    <h3 class="font-serif text-2xl text-primary" id="selected-class-name">Pilates Reformer</h3>
+                </div>
+                <button id="close-booking-modal" class="p-2 text-on-surface-variant hover:text-primary transition-colors" aria-label="Cerrar modal">
+                    <span class="material-symbols-outlined text-2xl">close</span>
+                </button>
+            </div>
+
+            <!-- Class Details Preview -->
+            <div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant/30 mb-6 space-y-2 text-xs md:text-sm text-on-surface-variant">
+                <p class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-base">schedule</span>
+                    <strong>Horario:</strong> <span id="selected-class-time">08:00 AM - 08:50 AM</span>
+                </p>
+                <p class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-base">person</span>
+                    <strong>Instructor:</strong> <span id="selected-class-instructor">Ana Soto</span>
+                </p>
+                <p class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-base">location_on</span>
+                    <strong>Lugar:</strong> Sala Reformer Principal (Estudio Edén)
+                </p>
+            </div>
+
+            <!-- Booking Form -->
+            <form id="booking-form" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-medium text-on-surface-variant uppercase tracking-wider mb-1" for="book-name">Nombre y Apellidos</label>
+                    <input class="w-full bg-surface-container-low border border-outline-variant/40 rounded-lg px-4 py-2.5 text-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none" id="book-name" placeholder="Ej. Marta Navarro" type="text" required>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-on-surface-variant uppercase tracking-wider mb-1" for="book-email">Correo Electrónico</label>
+                    <input class="w-full bg-surface-container-low border border-outline-variant/40 rounded-lg px-4 py-2.5 text-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none" id="book-email" placeholder="marta@ejemplo.com" type="email" required>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-on-surface-variant uppercase tracking-wider mb-1" for="book-phone">Teléfono de contacto</label>
+                    <input class="w-full bg-surface-container-low border border-outline-variant/40 rounded-lg px-4 py-2.5 text-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none" id="book-phone" placeholder="+34 600 000 000" type="tel" required>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-on-surface-variant uppercase tracking-wider mb-1" for="book-level">Nivel de experiencia</label>
+                    <select id="book-level" class="w-full bg-surface-container-low border border-outline-variant/40 rounded-lg px-4 py-2.5 text-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none">
+                        <option value="primera-vez">Primera vez en Pilates</option>
+                        <option value="principiante">Principiante (1 a 6 meses)</option>
+                        <option value="intermedio">Intermedio / Avanzado</option>
+                    </select>
+                </div>
+
+                <div class="pt-4 flex gap-3">
+                    <button type="submit" class="flex-1 py-3 bg-primary text-on-primary hover:bg-primary-container rounded-lg font-medium text-sm uppercase tracking-wider transition-colors shadow-sm">
+                        Confirmar Reserva
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast-notification" class="toast fixed bottom-8 right-8 z-50 max-w-md bg-primary text-on-primary p-4 rounded-xl shadow-lg border border-outline-variant/20 flex items-start gap-3 hidden">
+        <span class="material-symbols-outlined text-secondary-fixed text-2xl">check_circle</span>
+        <div class="flex-1 text-sm">
+            <p id="toast-message" class="font-medium leading-snug">Reserva confirmada con éxito.</p>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
